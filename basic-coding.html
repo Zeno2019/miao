@@ -256,7 +256,7 @@
   var a = Number(prompt());
   var b = Number(prompt());
 
-  if (a < 60 || b < 60) {
+  if (a < 60 && b >= 60 || a >= 60 && b < 60) {
     console.log(1);
   } else {
     console.log(0);
@@ -352,7 +352,7 @@
 
 <script type="x" id="ch0104/17">
   year = Number(prompt('The year'));
-  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+  if ((year % 4 === 0 && year % 100 !== 0 && year % 3200 !== 0) || year % 400 === 0 && year % 3200 !== 0) {
     console.log("Y");
   } else {
     console.log("N");
