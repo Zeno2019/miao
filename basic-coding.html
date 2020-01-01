@@ -477,3 +477,21 @@
   }
   console.log(SumAndAve(4, 344, 222, 343, 222));
 </script>
+
+<script id="ch0105/05">
+  const WhichMax = function(n) {
+    let a = arguments;
+    let max = 1;
+
+    if (n >= 1 && n < 100) {
+      for (let i = 1; i <= n; i++) {
+        if (Number(a[i]) > Number(a[max])) {
+          max = i;
+        }
+      }
+      return a[max];
+    } else {
+      return "error";
+    }
+  }
+</script>
