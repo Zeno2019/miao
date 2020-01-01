@@ -453,5 +453,27 @@
     var value = Number(prompt());
     sum += value;
   }
-  console.log('$' + (sum/n).toFixed(4));
+  console.log((sum/n).toFixed(4));
+</script>
+
+<script id="ch0105/04">
+  const SumAndAve = function(n) {
+    let a = arguments;
+    let sum = 0;
+    let list = [];
+
+    if (n >= 1 && n <= 10000) {
+      for (let i = 1; i <= n; i++) {
+        sum += Number(a[i]); /**第二个参数是 a[1],所以才是1～n */
+      }
+
+      list[0] = sum;
+      list[1] = (sum / n).toFixed(5);
+
+      return list.join(' ');
+    } else {
+      return "error";
+    }
+  }
+  console.log(SumAndAve(4, 344, 222, 343, 222));
 </script>
