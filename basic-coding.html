@@ -401,7 +401,7 @@
     var voild_1 = Math.sqrt(delta) / (2 * a);
     var voild_2 = -Math.sqrt(delta) / (2 * a);
     var x1 = real_1.toFixed(5) + '+' + voild_1.toFixed(5);
-    var x2 = real_1.toFixed(5) + '+' + voild_2.toFixed(5);
+    var x2 = real_1.toFixed(5) + voild_2.toFixed(5);
     console.log("x1=" + x1 + ";x2=" + x2);
   } else if (delta == 0) {
     var real_1 = -b / (2 * a);
@@ -414,7 +414,7 @@
     var voild_1 = Math.sqrt(delta) / (2 * a);
     var voild_2 = -Math.sqrt(delta) / (2 * a);
     var x1 = real_1.toFixed(5) + '+' + voild_1.toFixed(5) + 'i';
-    var x2 = real_1.toFixed(5) + '+' + voild_2.toFixed(5) + 'i';
+    var x2 = real_1.toFixed(5) + voild_2.toFixed(5) + 'i';
     console.log("x1=" + x1 + ";x2=" + x2);
   }
 </script>
