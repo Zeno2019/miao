@@ -521,5 +521,211 @@
 </script>
 
 <script id="ch0105/07">
+  const countTheMedal = function (n) {
+    let a = arguments;
+    let list = [];
+    let Gold = 0;
+    let Silever = 0;
+    let Copper = 0;
 
+    if (n >= 1 && n <= 17) {
+      for (var i = 1; i <= 3 * n; i++) {
+        if (i % 3 === 1) { // 1 % 3 == 1
+          Gold += Number(a[i]);
+        }
+        if (i % 3 === 2) {
+          Silever += Number(a[i]);
+        }
+        if (i !== 0 && i % 3 === 0) {
+          Copper += Number(a[i]);
+        }
+      }
+      list[0] = Gold;
+      list[1] = Silever;
+      list[2] = Copper;
+      list[3] = Gold + Silever + Copper;
+
+      return list.join(' ');
+    } else {
+      return "error";
+    }
+  }
+
+  console.log(countTheMedal(3, 1, 0, 3, 3, 1, 0, 0, 3, 0));
+</script>
+
+<script id="ch0105/08">
+  /**
+   * 在欧几里德几何中，n边形的内角和是(n-2)*180°。
+   * 已知其中(n-1)个内角的度数，就能计算出剩下的一个未知内角的度数。
+   * 请编写一个程序，来解决这个问题
+   */
+  const angleOfPolygon = function (n) {
+    let a = arguments;
+    let angleSum = 0;
+    if (n > 2) {
+      for (let i = 1; i < n; i++) {
+        angleSum += Number(a[i]);
+      }
+      return (n - 2) * 180 - angleSum;
+    } else {
+      return "error";
+    }
+  }
+
+  console.log(angleOfPolygon(3, 45, 60))
+</script>
+
+<script id="ch0105/09">
+  const sumOfOdd = function (m, n) {
+    var sum = 0;
+    m = Number(m);
+    n = Number(n);
+    if (m >= 0 && n >= m && n <= 300) {
+      for (let i = m; i <= n; i++) {
+        if (i % 2 !== 0) {
+          sum += i;
+        }
+      }
+      return sum;
+    } else {
+      return "error";
+    }
+  }
+
+  console.log(sumOfOdd(7, 15))
+</script>
+
+<script id="ch0105/10">
+</script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/19">
+  /**
+   * 救生船从大本营出发，营救若干屋顶上的人回到大本营，
+   * 屋顶数目以及每个屋顶的坐标和人数都将由输入决定，
+   * 求出所有人都到达大本营并登陆所用的时间。
+   * 在直角坐标系的原点是大本营，救生船每次从大本营出发，
+   * 救了人之后将人送回大本营。坐标系中的点代表屋顶，
+   * 每个屋顶由其位置坐标和其上的人数表示。救生船每次从大本营出发，
+   * 以速度50 米/分钟驶向下一个屋顶，达到一个屋顶后，救下其上的所有人，
+   * 每人上船1 分钟，船原路返回，达到大本营，每人下船0.5 分钟。
+   * 假设原点与任意一个屋顶的连线不穿过其它屋顶。
+   */
+  const sumOfTime = function (n) {
+    let a = arguments;
+    var sum = 0;
+
+    if (n >= 1) {
+      for (let i = 1; i <= n; i++) {
+        if (i % 3 == 1) {
+          var x = Number(a[i]);
+          var y = Number(a[i + 1]);
+          var z = Number(a[i + 2]);
+        }
+        var dis = Math.sqrt(x * x + y * y);
+        var onceTime = (dis / 50) * 2 + (1.5) * z;
+        sum += onceTime;
+      }
+      return Math.ceil(sum);
+    } else {
+      return "error";
+    }
+  }
+
+  console.log(sumOfTime(1, 30, 40, 3));
+</script>
+<script id="ch0105/20">
+
+</script>
+<script id="ch0105/21">
+  /**
+   * 所谓角谷猜想，是指对于任意一个正整数，如果是奇数，则乘3加1，
+   * 如果是偶数，则除以2，得到的结果再按照上述规则重复处理，最终总能够得到1。
+   * 如，假定初始整数为5，计算过程分别为16、8、4、2、1。
+   * 程序要求输入一个整数，将经过处理得到1的过程输出来。
+   */
+  const guessOfjiaogu = function (n) {
+    n = Number(n);
+    if (n > 1 && n <= 2000000) {
+      var N = n;
+      for (; ;) {
+        if (N % 2 !== 0 && N !== 1) {
+          var t = N * 3 + 1;
+          console.log(N + '*' + 3 + '+' + 1 + '=' + t)
+          N = t;
+        } else if (N % 2 === 0) {
+          var t = N / 2;
+          console.log(N + '/' + 2 + '=' + t)
+          N = t;
+        } else {
+          return 'End';
+          break;
+        }
+      }
+    } else if (n === 1) {
+      return 'End';
+    } else {
+      return "Error";
+    }
+  }
+
+  console.log(guessOfjiaogu(5));
+</script>
+<script id="ch0105/22">
+
+</script>
+<script id="ch0105/23">
+  const sumOfPatient = function (m) {
+    let a = arguments;
+    var base = m;
+    var count = 0;
+
+    if (m > 0) {
+      var n = Number(a[1]);
+      for (var i = 2; i <= n + 1; i++) {
+        var need = Number(a[i]);
+        if (base >= need) {
+          base -= need;
+        } else if (base < need) {
+          count += 1;
+        }
+      }
+      return count;
+    } else {
+      return "Error";
+    }
+  }
+
+  console.log(sumOfPatient(30, 6, 10, 5, 20, 6, 7, 8));
+</script>
+<script id="ch0105/24">
+
+</script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/"></script>
+<script id="ch0105/45">
 </script>
