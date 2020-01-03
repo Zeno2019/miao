@@ -597,9 +597,63 @@
 </script>
 
 <script id="ch0105/10">
+  /**
+   * 满足条件的数累加
+   * m = Math.ceil(m / 17) * 17;
+   * n = Math.floor(n / 17) * 17;
+   * 这两种方法可以取得相较于m，n第一个大于17和小于17的倍数
+   */
+  const sumOfValue = function (m, n) {
+
+    if (m > 0 && n > m && n < 1000) {
+      m = Math.ceil(m / 17) * 17;
+      n = Math.floor(n / 17) * 17;
+      var sum = 0;
+      for (var i = m; i <= n; i++) {
+        if (i % 17 == 0) {
+          sum += i;
+        }
+      }
+      return sum;
+    } else {
+      return 'error';
+    }
+  }
+
+  console.log(sumOfValue(50, 85));
 </script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/11">
+  const manyOfK = function (k) {
+    let a = arguments;
+    var value1 = 0;
+    var value5 = 0;
+    var value10 = 0;
+
+    if (k > 1 && k < 100) {
+      for (var i = 1; i <= k; i++) {
+        if (a[i] < 1 || a[i] > 10) {
+          return 'error';
+        } else {
+          if (a[i] == 10) {
+            value10++;
+          } else if (a[i] == 5) {
+            value5++;
+          } else if (a[i] == 1) {
+            value1++;
+          }
+        }
+      }
+      var result = '' + value1 + '\n' + value5 + '\n' + value10;
+      return result;
+    } else {
+      return 'error';
+    }
+  }
+
+  console.log(manyOfK(5, 1, 5, 8, 10, 5));
+</script>
+<script id="ch0105/12">
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
@@ -644,14 +698,14 @@
 <script id="ch0105/20">
   var h = +prompt();
   var t = h;
-
   var sum = 0;
+
   for (var i = 1; i <= 10; i++) {
     sum += h * 2;
     h /= 2;
   }
 
-  console.log(sum - t, h);
+  console.log((sum - t).toFixed(4), h.toFixed(7));
 </script>
 <script id="ch0105/21">
   /**
