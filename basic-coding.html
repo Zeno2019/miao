@@ -642,7 +642,16 @@
   console.log(sumOfTime(1, 30, 40, 3));
 </script>
 <script id="ch0105/20">
+  var h = +prompt();
+  var t = h;
 
+  var sum = 0;
+  for (var i = 1; i <= 10; i++) {
+    sum += h * 2;
+    h /= 2;
+  }
+
+  console.log(sum - t, h);
 </script>
 <script id="ch0105/21">
   /**
@@ -654,16 +663,15 @@
   const guessOfjiaogu = function (n) {
     n = Number(n);
     if (n > 1 && n <= 2000000) {
-      var N = n;
       for (; ;) {
-        if (N % 2 !== 0 && N !== 1) {
-          var t = N * 3 + 1;
-          console.log(N + '*' + 3 + '+' + 1 + '=' + t)
-          N = t;
-        } else if (N % 2 === 0) {
-          var t = N / 2;
-          console.log(N + '/' + 2 + '=' + t)
-          N = t;
+        if (n % 2 !== 0 && n !== 1) {
+          var t = n * 3 + 1;
+          console.log(n + '*3+1=' + t)
+          n = t;
+        } else if (n % 2 === 0) {
+          var t = n / 2;
+          console.log(n + '/2=' + t)
+          n = t;
         } else {
           return 'End';
           break;
@@ -706,7 +714,29 @@
   console.log(sumOfPatient(30, 6, 10, 5, 20, 6, 7, 8));
 </script>
 <script id="ch0105/24">
+  const timeOfNormal = function (n) {
+    let a = arguments;
+    var count = 0;
 
+    if (n > 0 && n < 100) {
+      for (let i = 1; i <= 2 * n; i++) {
+        if (i % 2 === 0 && i !== 0) {
+          var close = Number(a[i - 1]);
+          var open = Number(a[i]);
+          if (close <= 140 && close >= 90 && open <= 90 && open >= 60) {
+            count++;
+          } else {
+            count = 0;
+          }
+        }
+      }
+      return count;
+    } else {
+      return "Error";
+    }
+  }
+
+  console.log(timeOfNormal(4, 100, 80, 90, 50, 120, 60, 140, 90));
 </script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
