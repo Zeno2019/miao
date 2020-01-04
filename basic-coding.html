@@ -653,9 +653,50 @@
   console.log(manyOfK(5, 1, 5, 8, 10, 5));
 </script>
 <script id="ch0105/12">
+  const theNum = function (N) {
+    let a = arguments;
+    let m = a[1];
+    var count = 0;
+
+    if (N <= 100 && N > 0) {
+      for (let i = 2; i <= Number(N) + 1; i++) {
+        if (a[i] == m) {
+          count++;
+        }
+      }
+      return count;
+    } else {
+      return 'error';
+    }
+  }
+
+  console.log(theNum(3, 2, 2, 3, 2));
 </script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/13">
+  /**
+   * 乘方计算（优化）
+   */
+  var A = +prompt();
+  var B = +prompt();
+
+  function tPow(a, n) {
+    if (n < 0) {
+      return 'error';
+    } else if (n == 0) {
+      return 1;
+    }
+    let halfPow = tPow(a, Math.floor(n / 2));
+    if (n % 2 == 0) {
+      return halfPow * halfPow;
+    } else if (n % 2 == 1) {
+      return halfPow * halfPow * a;
+    }
+  }
+
+  console.log(tPow(A, B));
+</script>
+<script id="ch0105/14">
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
@@ -792,10 +833,61 @@
 
   console.log(timeOfNormal(4, 100, 80, 90, 50, 120, 60, 140, 90));
 </script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/25">
+  for (var i = 100; i <= 999; i++) {
+    var a7 = i % 7;
+    var b7 = (i - a7) / 7 % 7;
+    var c7 = (i - a7 - b7) / 7 / 7 % 7;
+
+    var a9 = i % 9;
+    var b9 = (i - a9) / 9 % 9;
+    var c9 = (i - a9 - b9) / 9 / 9 % 9;
+    if (a7 == c9 && b7 == b9 && a9 == c7) {
+      console.log(i, '' + a7 + b7 + c7, '' + a9 + b9 + c9);
+    }
+  }
+</script>
+<script id="ch0105/26">
+  const manyNum = function (n) {
+    let a = arguments;
+    var count = 0;
+
+    if (n <= 100) {
+      for (var i = 1; i <= n; i++) {
+        if (a[i] % 10 - Math.floor(a[i] / 1000) - Math.floor(a[i] / 100) % 10 - Math.floor(a[i] / 10) % 10 > 0) {
+          count++;
+        }
+      }
+      return count;
+    } else {
+      return 'error';
+    }
+  }
+
+  console.log(manyNum(5, 1234, 1349, 6119, 2123, 5017));
+</script>
+<script id="ch0105/27">
+  function searchSn(k) {
+    var Sn = 0;
+
+    if (k >= 1 && k <= 15) {
+      for (var n = 1; ; n++) {
+        Sn += 1 / n;
+        if (Sn > k) {
+          return n;
+          break;
+        }
+      }
+    } else {
+      return 'error';
+    }
+  }
+
+  K = +prompt();
+  console.log(searchSn(K));
+</script>
+<script id="ch0105/28">
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
