@@ -956,10 +956,66 @@
   console.log(isTheNum(m, k));
 </script>
 <script id="ch0105/31">
+  const lightSwitch = function (n, m) {
+    let lightList = [];
+    let result = [];
+    var t = 0;
+    var cnt = 0;
+
+    for (var i = 1; i <= n; i++) {
+      lightList[i] = 1;
+      for (var j = 1; j <= m; j++) {
+        if (i % j == 0) {
+          lightList[i] *= -1;
+        }
+      }
+    }
+
+    for (var k = 1; k <= n; k++) {
+      if (lightList[k] == -1) {
+        cnt++;
+        t = t * 10 + k;
+      }
+    }
+
+    for (var g = cnt - 1; g >= 0; g--) {
+      var digit = t % 10;
+      result[g] = digit;
+      t = (t - digit) / 10;
+    }
+    result
+    return result.join(',');
+  }
+  var N = +prompt();
+  var M = +prompt();
+
+  console.log(lightSwitch(N, M));
 </script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/34">
+  function fact(n) {
+    if (n < 0) {
+      return 'error';
+    }
+    if (n == 0) {
+      return 1;
+    } else {
+      return fact(n - 1) * n;
+    }
+  }
+
+  function sumFact(N) {
+    var sum = 0;
+    for (var i = 1; i <= N; i++) {
+      sum += fact(i);
+    }
+    return sum;
+  }
+  var x = +prompt();
+
+  console.log(sumFact(x));
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
