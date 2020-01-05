@@ -643,8 +643,8 @@
           }
         }
       }
-      var result = '' + value1 + '\n' + value5 + '\n' + value10;
-      return result;
+      var result = [value1, value5, value10];
+      return result.join(' ');
     } else {
       return 'error';
     }
@@ -887,10 +887,76 @@
   console.log(searchSn(K));
 </script>
 <script id="ch0105/28">
+  const revPrint = function (n) {
+    let list = [];
+
+    if (n >= 1 && n < 100000000) {
+      for (var i = 0; ; i++) {
+        if (Math.floor(n / 10) !== 0) {
+          list[i] = n % 10;
+          n = Math.floor(n / 10);
+        } else {
+          list[i] = n % 10;
+          break;
+        }
+      }
+      return list.join(' ');
+    } else {
+      return 'error';
+    }
+  }
+
+  var N = +prompt();
+  console.log(revPrint(N));
 </script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/29">
+  var n = +prompt();
+  var result = 0;
+  var sign = 1;
+
+  if (n < 0) {
+    n = -n;
+    sign = -1;
+  }
+
+  do {
+    var digit = n % 10;
+    result = 10 * result + digit;
+    n = (n - digit) / 10;
+  } while (n > 0)
+
+  console.log(result * sign);
+</script>
+<script id="ch0105/30">
+  const isTheNum = function (M, K) {
+    var t = Number(M);
+    var count = 0;
+
+    if (M < 0) {
+      M = -M;
+    }
+
+    do {
+      var digit = M % 10;
+      if (digit == 3) {
+        count++;
+      }
+      M = (M - digit) / 10;
+    } while (M > 0)
+
+    if (t % 19 == 0 && count == K) {
+      return 'YES';
+    } else {
+      return 'NO';
+    }
+  }
+  var m = +prompt();
+  var k = +prompt();
+
+  console.log(isTheNum(m, k));
+</script>
+<script id="ch0105/31">
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
