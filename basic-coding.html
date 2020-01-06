@@ -1055,3 +1055,127 @@
 </script>
 <script id="ch0105/45">
 </script>
+<script id="7">
+</script>
+<script id="sort">
+</script>
+<script id="narcissistic">
+  function digitWidth(t) {
+    var digitWidth = 0;
+
+    do {
+      var digit = t % 10;
+      t = (t - digit) / 10;
+      digitWidth++;
+    } while (t > 0)
+
+    return digitWidth;
+  }
+
+  function isNarcissistic(n) {
+    var w = digitWidth(n)
+    var sum = 0;
+    var t = n;
+
+    do {
+      var digit = t % 10;
+      sum += Math.pow(digit, w);
+      t = (t - digit) / 10;
+    } while (t > 0)
+
+    if (sum == n) {
+      return 'YES';
+    } else {
+      return 'NO';
+    }
+  }
+
+  var N = +prompt();
+  console.log(isNarcissistic(N));
+</script>
+<script id="narcissistics">
+  function digitWidth(t) {
+    var digitWidth = 0;
+
+    do {
+      var digit = t % 10;
+      t = (t - digit) / 10;
+      digitWidth++;
+    } while (t > 0)
+
+    return digitWidth;
+  }
+
+  function isNarcissistic(n) {
+    var w = digitWidth(n)
+    var sum = 0;
+    var t = n;
+
+    do {
+      var digit = t % 10;
+      sum += Math.pow(digit, w);
+      t = (t - digit) / 10;
+    } while (t > 0)
+
+    if (sum == n) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  function Narcissistics() {
+    for (var i = 100; i < 1000; i++) {
+      if (isNarcissistic(i) == true) {
+        console.log(i);
+      }
+    }
+  }
+
+  Narcissistics();
+</script>
+<script id="palindrom"></script>
+<script id="weekday"></script>
+<script id="complete-number"></script>
+<script id="complete-numbers"></script>
+<script id="prime">
+  function isPrime(n) {
+    var sqrt_n = Math.sqrt(n);
+    for (var i = 2; i <= sqrt_n; i++) {
+      if (n % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  var N = +prompt();
+  console.log(isPrime(N));
+</script>
+<script id="primes">
+  function isPrime(n) {
+    var sqrt_n = Math.sqrt(n);
+    for (var i = 2; i <= sqrt_n; i++) {
+      if (n % i == 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  function Primes() {
+    for (var j = 2; j < 100; j++) {
+      if (isPrime(j) == true) {
+        console.log(j);
+      }
+    }
+  }
+
+  Primes();
+</script>
+<script id="itob">
+</script>
+<script id="lcf&lcm">
+</script>
+<script id="sqrt">
+</script>
