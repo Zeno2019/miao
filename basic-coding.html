@@ -1020,10 +1020,38 @@
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
+<script id="ch0105/39">
+  function withoutDigit(t) {
+    do {
+      var digit = t % 10;
+      if (digit == 7) {
+        return false;
+      }
+      t = (t - digit) / 10;
+    } while (t > 0)
+    return true;
+  }
+
+  function noSeven(n) {
+    if (n > 0 && n < 100) {
+      var sum = 0;
+      for (var i = 1; i <= n; i++) {
+        if (i % 7 != 0 && withoutDigit(i) == true) {
+          sum += i * i;
+        }
+      }
+    }
+    return sum;
+  }
+  var N = +prompt();
+
+  console.log(noSeven(N));
+</script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
 <script id="ch0105/"></script>
-<script id="ch0105/"></script>
+<script id="ch0105/44">
+</script>
 <script id="ch0105/45">
 </script>
