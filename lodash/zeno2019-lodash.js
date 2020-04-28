@@ -1,4 +1,4 @@
-
+//
 var zeno2019 = {};
 
 zeno2019.isNull = function (val) {
