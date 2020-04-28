@@ -1,5 +1,5 @@
-var Zeno2019 = {};
+var zeno2019 = {};
 
-Zeno2019.isNull = function (val) {
+zeno2019.isNull = function (val) {
   return val === null ? true : false;
 }
