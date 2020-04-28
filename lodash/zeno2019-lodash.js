@@ -5,16 +5,14 @@
 
 var zeno2019 = {};
 
-zeno2019.isNull = function (val) {
+zeno2019.isNull = function(val) {
   return val === null ? true : false;
 }
 
-zeno2019.chunk = function (array, size = 1) {
+zeno2019.chunk = function(array, size = 1) {
   let result = [];
 
-  if (array == null || size < 1) {
-    return result;
-  }
+  if (array == null || size < 1) return result;
 
   let length = array.length;
   let tempArray = [];
@@ -35,7 +33,7 @@ zeno2019.chunk = function (array, size = 1) {
   return result;
 }
 
-zeno2019.compact = function (array) {
+zeno2019.compact = function(array) {
   let result = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -48,22 +46,36 @@ zeno2019.compact = function (array) {
   return result;
 }
 
-zeno2019.xxx = function (val) {
+zeno2019.concat = function(array, ...values) {
+  let result = [];
+  let length = arguments.length;
+
+  if (length === 0) {
+    return result;
+  }
+  result[0] = array;
+  let rIndex = length - 1;
+
+  while (rIndex > 0) {
+    result[rIndex] = arguments[rIndex];
+    rIndex--;
+  }
+
+  return result;
+}
+
+zeno2019.xxx = function(val) {
 
 }
 
-zeno2019.xxx = function (val) {
+zeno2019.xxx = function(val) {
 
 }
 
-zeno2019.xxx = function (val) {
+zeno2019.xxx = function(val) {
 
 }
 
-zeno2019.xxx = function (val) {
-
-}
-
-zeno2019.xxx = function (val) {
+zeno2019.xxx = function(val) {
 
 }
