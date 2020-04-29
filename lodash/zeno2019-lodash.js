@@ -46,26 +46,53 @@ zeno2019.compact = function(array) {
   return result;
 }
 
-zeno2019.concat = function(array, ...values) {
+zeno2019.concat = function(arr, ...values) {
   let result = [];
   let length = arguments.length;
 
   if (length === 0) {
     return result;
   }
-  result[0] = array;
-  let rIndex = length - 1;
 
-  while (rIndex > 0) {
-    result[rIndex] = arguments[rIndex];
-    rIndex--;
+  for (let arrVal of arr) {
+    // result.length 从 0 -> arr.length - 1
+    result[result.length] = arrVal;
+  }
+
+  // for key in , for val of
+  for (let val of values) {
+    if (Array.isArray(val)) {
+      for (let key in val) {
+        result[result.length] = val[key];
+      }
+    } else {
+      result[result.length] = val;
+    }
   }
 
   return result;
 }
 
-zeno2019.xxx = function(val) {
+zeno2019.difference = function(arr, ...values) {
+  let result = [];
+  let uniVal = [];
 
+  uniVal = zeno2019.concat(...values);
+
+  for (let v of arr) {
+    let noSame = 1;
+    for (let num of uniVal) {
+      if (v === num) {
+        noSame = 0;
+        break;
+      }
+    }
+    if (noSame) {
+      result[result.length] = v;
+    }
+  }
+
+  return result;
 }
 
 zeno2019.xxx = function(val) {
