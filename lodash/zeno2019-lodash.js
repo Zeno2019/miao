@@ -98,7 +98,6 @@ zeno2019.difference = function(arr, ...values) {
 zeno2019.drop = function(arr, n = 1) {
   let result = [];
 
-  num = n < arr.length ? n : arr.length;
   for (let i = n; i < arr.length; i++) {
     result[result.length] = arr[i];
   }
@@ -106,8 +105,16 @@ zeno2019.drop = function(arr, n = 1) {
   return result;
 }
 
-zeno2019.xxx = function(val) {
+zeno2019.dropRight = function(arr, n = 1) {
+  let result = [];
+  let length = arr.length - 1;
+  let j = 0
 
+  for (let i = length - n; i >= 0; i--) {
+    result[result.length] = arr[j++];
+  }
+
+  return result;
 }
 
 zeno2019.xxx = function(val) {
