@@ -117,6 +117,33 @@ zeno2019.dropRight = function(arr, n = 1) {
   return result;
 }
 
-zeno2019.xxx = function(val) {
-
+zeno2019.fill = function(arr, value, start = 0, end = arr.length) {
+  for (let i = start; i < end; i++) {
+    arr[i] = value;
+  }
+  return arr;
 }
+
+zeno2019.flatten = function(arr) {
+  let result = [];
+
+  for (let arrVal of arr) {
+    if (Array.isArray(arrVal)) {
+      for (let key in arrVal) {
+        result[result.length] = arrVal[key];
+      }
+    } else {
+      result[result.length] = arrVal;
+    }
+  }
+
+  return result;
+}
+
+zeno2019.xxx = function(arr) {}
+
+zeno2019.xxx = function(arr) {}
+
+zeno2019.xxx = function(arr) {}
+
+zeno2019.xxx = function(arr) {}
