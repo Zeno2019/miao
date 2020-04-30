@@ -140,10 +140,59 @@ zeno2019.flatten = function(arr) {
   return result;
 }
 
-zeno2019.xxx = function(arr) {}
+zeno2019.head = arr => arr[0];
 
-zeno2019.xxx = function(arr) {}
+zeno2019.indexOf = function(arr, value, fromIndex = 0) {
+  let n = fromIndex >= 0 ? fromIndex : arr.length + fromIndex;
 
-zeno2019.xxx = function(arr) {}
+  for (let i = n; i < arr.length; i++) {
+    if (arr[i] === value) return i;
+  }
+  return -1;
+}
+
+zeno2019.initial = function(arr) {
+  let result = [];
+
+  for (let i = 0; i < arr.length - 1; i++) {
+    result[result.length] = arr[i];
+  }
+
+  return result;
+}
+
+/**
+ * [xintersection description]
+ * 未完成
+ * @param  {...[type]} arrays [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.xintersection = function(...arrays) {
+  let result = [];
+
+  return result;
+}
+
+zeno2019.join = function(arr, separator = ',') {
+  let result = '';
+  result += arr[0];
+
+  for (let i = 1; i < arr.length; i++) {
+    result += separator + arr[i];
+  }
+
+  return result;
+}
+
+zeno2019.last = arr => arr[arr.length - 1];
+
+zeno2019.lastIndexOf = function(arr, value, fromIndex = arr.length - 1) {
+
+  for (let i = fromIndex; i >= 0; i--) {
+    if (arr[i] === value) return i;
+  }
+
+  return -1;
+}
 
 zeno2019.xxx = function(arr) {}
