@@ -146,7 +146,7 @@ zeno2019.indexOf = function(arr, value, fromIndex = 0) {
   let n = fromIndex >= 0 ? fromIndex : arr.length + fromIndex;
 
   for (let i = n; i < arr.length; i++) {
-    if (arr[i] === value) return i;
+    if (arr[i] === value || (arr[i] !== arr[i] && value !== value)) return i;
   }
   return -1;
 }
@@ -178,7 +178,7 @@ zeno2019.join = function(arr, separator = ',') {
   result += arr[0];
 
   for (let i = 1; i < arr.length; i++) {
-    result += separator + arr[i];
+    result += '' + separator + arr[i];
   }
 
   return result;
@@ -189,7 +189,7 @@ zeno2019.last = arr => arr[arr.length - 1];
 zeno2019.lastIndexOf = function(arr, value, fromIndex = arr.length - 1) {
 
   for (let i = fromIndex; i >= 0; i--) {
-    if (arr[i] === value) return i;
+    if (arr[i] === value || (arr[i] !== arr[i] && value !== value)) return i;
   }
 
   return -1;
