@@ -246,10 +246,9 @@ zeno2019.reverse = function(arr) {
 zeno2019.sortedIndex = function(arr, value) {
   if (value > arr[arr.length - 1]) return arr.length;
 
-  for (let key in arr) {
+  for (let key = 0; key < arr.length; key++) {
     if (arr[key] <= value && value <= arr[key + 1]) {
       return key + 1;
     }
   }
 }
-console.log(zeno2019.sortedIndex([1, 2, 2, 2, 2, 3], 2));
