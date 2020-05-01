@@ -195,4 +195,61 @@ zeno2019.lastIndexOf = function(arr, value, fromIndex = arr.length - 1) {
   return -1;
 }
 
-zeno2019.xxx = function(arr) {}
+zeno2019.nth = function(arr, n = 0) {
+  let N = n >= 0 ? n : arr.length + n;
+  return arr[N];
+}
+
+/**
+ * [pull description]
+ * 从第二个参数开始，依次检验是否存在于 arr
+ * @param  {[type]}    arr    [description]
+ * @param  {...[type]} values [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.pull = function(arr, ...values) {
+  for (let val of values) {
+    for (let key in arr) {
+      if (arr[key] === val) {
+        arr.splice(key, 1);
+      }
+    }
+  }
+
+  return arr;
+}
+
+zeno2019.pullAll = function(arr, tarArr) {
+  for (let val of tarArr) {
+    for (let key in arr) {
+      if (arr[key] === val) {
+        arr.splice(key, 1);
+      }
+    }
+  }
+
+  return arr;
+}
+
+zeno2019.reverse = function(arr) {
+  let len = arr.length - 1;
+
+  for (let i = 0; i <= arr.length / 2; i++) {
+    let t = arr[i];
+    arr[i] = arr[len - i];
+    arr[len - i] = t;
+  }
+
+  return arr;
+}
+
+zeno2019.sortedIndex = function(arr, value) {
+  if (value > arr[arr.length - 1]) return arr.length;
+
+  for (let key in arr) {
+    if (arr[key] <= value && value <= arr[key + 1]) {
+      return key + 1;
+    }
+  }
+}
+console.log(zeno2019.sortedIndex([1, 2, 2, 2, 2, 3], 2));
