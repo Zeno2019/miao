@@ -252,3 +252,33 @@ zeno2019.sortedIndex = function(arr, value) {
     }
   }
 }
+
+/**
+ * [sortedIndexOf description]
+ * 用二分法找到大于前一个数，小于等于后一个数的位置
+ * @param  {[type]} arr   [description]
+ * @param  {[type]} value [description]
+ * @return {[type]}       [description]
+ */
+zeno2019.sortedIndexOf = function(arr, value) {
+  var left = 0;
+  var right = arr.length - 1;
+
+  if (arr[left] == value) return left;
+  if (arr[right] < value) return -1;
+
+  while (left < right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (arr[mid] < value) {
+      left = mid + 1;
+    } else {
+      if (arr[mid - 1] < value) {
+        return mid;
+      }
+      right = mid;
+    }
+  }
+
+  return -1;
+}
