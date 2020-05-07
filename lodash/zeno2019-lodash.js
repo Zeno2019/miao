@@ -316,3 +316,72 @@ zeno2019.takeRight = function (arr, n = 1) {
 
   return result;
 }
+
+/**
+ * [takeRightWhile description]
+ * 未完待续
+ * @param  {[type]} arr [description]
+ * @return {[type]}     [description]
+ */
+zeno2019.xtakeRightWhile = function (arr) { }
+
+/**
+ * [union description]
+ * 创建一个按顺序排列的唯一值组成的数组(非按大小排序)
+ * 可以理解成给定的数组的并集
+ * @param  {...[type]} arr [description]
+ * @return {[type]}        [description]
+ */
+zeno2019.union = function (...arrays) {
+  let numSet = new Set();
+
+  for (let arr of arrays) {
+    for (let val of arr) {
+      if (!numSet.has(val)) {
+        numSet.add(val);
+      }
+    }
+  }
+
+  return [...numSet];
+}
+
+/**
+ * [uniq description]
+ * 返回一个去重的数组，按输入顺序排序
+ * @param  {[type]} arr [description]
+ * @return {[type]}     [description]
+ */
+zeno2019.uniq = function (arr) {
+  let uniqSet = new Set();
+
+  for (let val of arr) {
+    if (!uniqSet.has(val)) {
+      uniqSet.add(val);
+    }
+  }
+
+  return [...uniqSet];
+}
+
+/**
+ * [unzip description]
+ * 返回的数组的第一个元素包含所有输入数组的第一元素,以此类推
+ * @param  {[type]} arr [description]
+ * @return {[type]}     [description]
+ */
+zeno2019.unzip = function (arr) {
+  let result = new Array();
+
+  for (let i = 0; i < arr[0].length; i++) {
+    result[i] = new Array();
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      result[j][i] = arr[i][j];
+    }
+  }
+
+  return result;
+}
