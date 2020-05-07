@@ -5,11 +5,11 @@
 
 var zeno2019 = {};
 
-zeno2019.isNull = function(val) {
+zeno2019.isNull = function (val) {
   return val === null ? true : false;
 }
 
-zeno2019.chunk = function(array, size = 1) {
+zeno2019.chunk = function (array, size = 1) {
   let result = [];
 
   if (array == null || size < 1) return result;
@@ -33,7 +33,7 @@ zeno2019.chunk = function(array, size = 1) {
   return result;
 }
 
-zeno2019.compact = function(array) {
+zeno2019.compact = function (array) {
   let result = [];
 
   for (let i = 0; i < array.length; i++) {
@@ -46,7 +46,7 @@ zeno2019.compact = function(array) {
   return result;
 }
 
-zeno2019.concat = function(arr, ...values) {
+zeno2019.concat = function (arr, ...values) {
   let result = [];
   let length = arguments.length;
 
@@ -73,7 +73,7 @@ zeno2019.concat = function(arr, ...values) {
   return result;
 }
 
-zeno2019.difference = function(arr, ...values) {
+zeno2019.difference = function (arr, ...values) {
   let result = [];
   let uniVal = [];
 
@@ -95,7 +95,7 @@ zeno2019.difference = function(arr, ...values) {
   return result;
 }
 
-zeno2019.drop = function(arr, n = 1) {
+zeno2019.drop = function (arr, n = 1) {
   let result = [];
 
   for (let i = n; i < arr.length; i++) {
@@ -105,7 +105,7 @@ zeno2019.drop = function(arr, n = 1) {
   return result;
 }
 
-zeno2019.dropRight = function(arr, n = 1) {
+zeno2019.dropRight = function (arr, n = 1) {
   let result = [];
   let length = arr.length - 1;
   let j = 0
@@ -117,14 +117,14 @@ zeno2019.dropRight = function(arr, n = 1) {
   return result;
 }
 
-zeno2019.fill = function(arr, value, start = 0, end = arr.length) {
+zeno2019.fill = function (arr, value, start = 0, end = arr.length) {
   for (let i = start; i < end; i++) {
     arr[i] = value;
   }
   return arr;
 }
 
-zeno2019.flatten = function(arr) {
+zeno2019.flatten = function (arr) {
   let result = [];
 
   for (let arrVal of arr) {
@@ -142,7 +142,7 @@ zeno2019.flatten = function(arr) {
 
 zeno2019.head = arr => arr[0];
 
-zeno2019.indexOf = function(arr, value, fromIndex = 0) {
+zeno2019.indexOf = function (arr, value, fromIndex = 0) {
   let n = fromIndex >= 0 ? fromIndex : arr.length + fromIndex;
 
   for (let i = n; i < arr.length; i++) {
@@ -151,7 +151,7 @@ zeno2019.indexOf = function(arr, value, fromIndex = 0) {
   return -1;
 }
 
-zeno2019.initial = function(arr) {
+zeno2019.initial = function (arr) {
   let result = [];
 
   for (let i = 0; i < arr.length - 1; i++) {
@@ -167,13 +167,13 @@ zeno2019.initial = function(arr) {
  * @param  {...[type]} arrays [description]
  * @return {[type]}           [description]
  */
-zeno2019.xintersection = function(...arrays) {
+zeno2019.xintersection = function (...arrays) {
   let result = [];
 
   return result;
 }
 
-zeno2019.join = function(arr, separator = ',') {
+zeno2019.join = function (arr, separator = ',') {
   let result = '';
   result += arr[0];
 
@@ -186,7 +186,7 @@ zeno2019.join = function(arr, separator = ',') {
 
 zeno2019.last = arr => arr[arr.length - 1];
 
-zeno2019.lastIndexOf = function(arr, value, fromIndex = arr.length - 1) {
+zeno2019.lastIndexOf = function (arr, value, fromIndex = arr.length - 1) {
 
   for (let i = fromIndex; i >= 0; i--) {
     if (arr[i] === value || (arr[i] !== arr[i] && value !== value)) return i;
@@ -195,7 +195,7 @@ zeno2019.lastIndexOf = function(arr, value, fromIndex = arr.length - 1) {
   return -1;
 }
 
-zeno2019.nth = function(arr, n = 0) {
+zeno2019.nth = function (arr, n = 0) {
   let N = n >= 0 ? n : arr.length + n;
   return arr[N];
 }
@@ -207,7 +207,7 @@ zeno2019.nth = function(arr, n = 0) {
  * @param  {...[type]} values [description]
  * @return {[type]}           [description]
  */
-zeno2019.pull = function(arr, ...values) {
+zeno2019.pull = function (arr, ...values) {
   for (let val of values) {
     for (let key in arr) {
       if (arr[key] === val) {
@@ -219,7 +219,7 @@ zeno2019.pull = function(arr, ...values) {
   return arr;
 }
 
-zeno2019.pullAll = function(arr, tarArr) {
+zeno2019.pullAll = function (arr, tarArr) {
   for (let val of tarArr) {
     for (let key in arr) {
       if (arr[key] === val) {
@@ -231,7 +231,7 @@ zeno2019.pullAll = function(arr, tarArr) {
   return arr;
 }
 
-zeno2019.reverse = function(arr) {
+zeno2019.reverse = function (arr) {
   let len = arr.length - 1;
 
   for (let i = 0; i <= arr.length / 2; i++) {
@@ -243,7 +243,7 @@ zeno2019.reverse = function(arr) {
   return arr;
 }
 
-zeno2019.sortedIndex = function(arr, value) {
+zeno2019.sortedIndex = function (arr, value) {
   if (value > arr[arr.length - 1]) return arr.length;
 
   for (let key = 0; key < arr.length; key++) {
@@ -260,7 +260,7 @@ zeno2019.sortedIndex = function(arr, value) {
  * @param  {[type]} value [description]
  * @return {[type]}       [description]
  */
-zeno2019.sortedIndexOf = function(arr, value) {
+zeno2019.sortedIndexOf = function (arr, value) {
   var left = 0;
   var right = arr.length - 1;
 
@@ -281,4 +281,38 @@ zeno2019.sortedIndexOf = function(arr, value) {
   }
 
   return -1;
+}
+
+zeno2019.tail = function (arr) {
+  let result = [];
+
+  for (let i = 1; i < arr.length; i++) {
+    result[result.length] = arr[i];
+  }
+
+  return result;
+}
+
+zeno2019.take = function (arr, n = 1) {
+  let result = [];
+
+  if (n > arr.length) return arr;
+
+  for (let i = 0; i < n; i++) {
+    result[result.length] = arr[i];
+  }
+
+  return result;
+}
+
+zeno2019.takeRight = function (arr, n = 1) {
+  let result = [];
+
+  if (n > arr.length) return arr;
+
+  for (let i = arr.length - n; i < arr.length; i++) {
+    result[result.length] = arr[i];
+  }
+
+  return result;
 }
