@@ -385,3 +385,77 @@ zeno2019.unzip = function (arr) {
 
   return result;
 }
+
+zeno2019.without = function (arr, ...values) {
+  let res = [];
+
+  for (let num of arr) {
+    let same = 0;
+    for (let val of values) {
+      if (val == num) {
+        same = 1;
+      }
+    }
+    if (!same) {
+      res[res.length] = num;
+    }
+  }
+
+  return res;
+}
+
+zeno2019.xor = function (...arrays) {
+  const map = {};
+  const res = [];
+
+  for (let arr of arrays) {
+    for (let num of arr) {
+      if (map[num]) {
+        map[num]++;
+      } else {
+        map[num] = 1;
+      }
+    }
+  }
+
+  for (let key in map) {
+    if (map[key] == 1) {
+      res[res.length] = Number(key);
+    }
+  }
+
+  return res;
+}
+
+/**
+ * [zip description]
+ * 创建一个分组元素的数组，其第一个元素包含所有给定数组的第一个元素，数组的第二个元素包含所有给定数组的第二个元素，以此类推
+ * @param  {...[type]} arrays [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.zip = function (...arr) {
+  let res = [];
+
+  for (let i = 0; i < arr[0].length; i++) {
+    res[i] = new Array();
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      res[j][i] = arr[i][j];
+    }
+  }
+
+  return res;
+}
+
+zeno2019.zipObject = function (propsArr = [], values = []) {
+  const map = {};
+  let item = 0;
+
+  for (let prop of propsArr) {
+    map[prop] = values[item++];
+  }
+
+  return map;
+}
