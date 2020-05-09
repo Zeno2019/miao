@@ -323,7 +323,7 @@ zeno2019.takeRight = function (arr, n = 1) {
  * @param  {[type]} arr [description]
  * @return {[type]}     [description]
  */
-zeno2019.xtakeRightWhile = function (arr) { }
+zeno2019.xtakeRightWhile = function (arr) {}
 
 /**
  * [union description]
@@ -470,8 +470,54 @@ zeno2019.identity = function (value) {
   return value;
 }
 
+/**
+ * [filter description]
+ * 未完待续
+ * @param  {[type]} collect   [description]
+ * @param  {[type]} predicate [description]
+ * @return {[type]}           [description]
+ */
 zeno2019.xfilter = function (collect, predicate = zeno2019.identity) {
   let res = [];
 
   return res;
+}
+
+/**
+ * [findIndex description]
+ * 该方法返回第一个通过 predicate 判断为真值的元素的索引
+ * 未完待续，可能需要原型链的知识
+ * @param  {[type]} arr       [description]
+ * @param  {[type]} predicate [description]
+ * @param  {Number} fromIndex [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.findIndex = function (arr, predicate = zeno2019.identity, fromIndex = 0) {
+  let ObjectJudge = Object.prototype.toString.call;
+
+  if (arr.length == 0) return -1;
+
+  if (ObjectJudge(predicate) == '[object Object]') {
+    for (let i = fromIndex; i < arr.length; i++) {
+      let test = 1;
+      for (let key in arr[i]) {
+        if (predicate[key] != arr[i][key]) test = 0;
+      }
+      if (test) return i;
+    }
+  } else if (ObjectJudge(predicate) == '[object Function]') {
+    for (let i = fromIndex; i < arr.length; i++) {
+      if (predicate(arr[i])) return i;
+    }
+  } else if (ObjectJudge(predicate) == '[object String]') {
+    for (let i = fromIndex; i < arr.length; i++) {
+      if (arr[i][predicate]) return i;
+    }
+  } else {
+    for (let i = fromIndex; i < arr.length; i++) {
+      if (arr[i][predicate[0]] == predicate[1]) return i;
+    }
+  }
+
+  return -1;
 }
