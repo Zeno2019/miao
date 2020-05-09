@@ -435,13 +435,18 @@ zeno2019.xor = function (...arrays) {
  */
 zeno2019.zip = function (...arr) {
   let res = [];
+  let max = 0;
 
-  for (let i = 0; i < arr[0].length; i++) {
+  for (let elem of arr) {
+    if (max < elem.length) max = elem.length;
+  }
+
+  for (let i = 0; i < max; i++) {
     res[i] = new Array();
   }
 
   for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
+    for (let j = 0; j < max; j++) {
       res[j][i] = arr[i][j];
     }
   }
@@ -458,4 +463,15 @@ zeno2019.zipObject = function (propsArr = [], values = []) {
   }
 
   return map;
+}
+
+
+zeno2019.identity = function (value) {
+  return value;
+}
+
+zeno2019.xfilter = function (collect, predicate = zeno2019.identity) {
+  let res = [];
+
+  return res;
 }
