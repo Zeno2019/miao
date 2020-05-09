@@ -493,8 +493,9 @@ zeno2019.xfilter = function (collect, predicate = zeno2019.identity) {
  * @return {[type]}           [description]
  */
 zeno2019.findIndex = function (arr, predicate = zeno2019.identity, fromIndex = 0) {
-  let ObjectJudge = Object.prototype.toString.call;
-
+  function ObjectJudge(args) {
+    return Object.prototype.toString.call(args);
+  }
   if (arr.length == 0) return -1;
 
   if (ObjectJudge(predicate) == '[object Object]') {
@@ -520,4 +521,69 @@ zeno2019.findIndex = function (arr, predicate = zeno2019.identity, fromIndex = 0
   }
 
   return -1;
+}
+
+/**
+ * [findLastIndex description]
+ * 该方法返回第一个通过 predicate 判断为真值的元素的索引
+ * 未完待续，可能需要原型链的知识
+ * @param  {[type]} arr       [description]
+ * @param  {[type]} predicate [description]
+ * @param  {Number} fromIndex [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.findLastIndex = function (arr, predicate = zeno2019.identity, fromIndex = arr.length - 1) {
+  function ObjectJudge(args) {
+    return Object.prototype.toString.call(args);
+  }
+
+  if (arr.length == 0) return -1;
+  if (fromIndex > arr.length - 1) fromIndex = arr.length - 1;
+
+  if (ObjectJudge(predicate) == '[object Object]') {
+    for (let i = fromIndex; i >= 0; i--) {
+      let test = 1;
+      for (let key in arr[i]) {
+        if (predicate[key] != arr[i][key]) test = 0;
+      }
+      if (test) return i;
+    }
+  } else if (ObjectJudge(predicate) == '[object Function]') {
+    for (let i = fromIndex; i >= 0; i--) {
+      if (predicate(arr[i])) return i;
+    }
+  } else if (ObjectJudge(predicate) == '[object String]') {
+    for (let i = fromIndex; i >= 0; i--) {
+      if (arr[i][predicate]) return i;
+    }
+  } else {
+    for (let i = fromIndex; i >= 0; i--) {
+      if (arr[i][predicate[0]] == predicate[1]) return i;
+    }
+  }
+
+  return -1;
+}
+
+zeno2019.includes = function (collect, value, fromIndex = 0) {
+  function ObjectJudge(args) {
+    return Object.prototype.toString.call(args);
+  }
+
+  if (fromIndex < 0) fromIndex += collect.length;
+
+  if (Array.isArray(collect)) {
+    for (let key = fromIndex; key < collect.length; key++) {
+      if (collect[key] == value) return true;
+    }
+  } else if (ObjectJudge(collect) == '[object Object]') {
+    for (let key in collect) {
+      if (collect[key] == value || key == value) return true;
+    }
+  } else if (typeof (collect) == 'string') {
+    let regex = new RegExp(value);
+    return regex.test(collect);
+  }
+
+  return false;
 }
