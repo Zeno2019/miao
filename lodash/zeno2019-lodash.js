@@ -587,3 +587,55 @@ zeno2019.includes = function (collect, value, fromIndex = 0) {
 
   return false;
 }
+
+/**
+ * [flattenDeep description]
+ * 未完成
+ * @param   {[type]}  arr  [arr description]
+ * @return  {[type]}       [return description]
+ */
+zeno2019.xflattenDeep = function (arr) {}
+
+/**
+ * [sample description]
+ * @param   {[type]}  collect  [collect description]
+ * @return  {[type]}           [return description]
+ */
+zeno2019.sample = function (collect) {
+  let r = Math.floor(Math.random() * collect.length);
+  return collect[r];
+}
+
+/**
+ * [sampleSize description]
+ * @param   {[type]}  collect  [collect description]
+ * @param   {[type]}  n        [n description]
+ * @return  {[type]}           [return description]
+ */
+zeno2019.sampleSize = function (collect, n = 1) {
+  let colSet = new Set();
+
+  n = n > collect.length ? collect.length : n;
+  while (colSet.size < n) {
+    let r = Math.floor(Math.random() * collect.length);
+    if (!colSet.has(collect[r])) colSet.add(collect[r]);
+  }
+
+  return [...colSet];
+}
+
+/**
+ * [shuffle description]
+ * @param   {[type]}  collect  [collect description]
+ * @return  {[type]}           [return description]
+ */
+zeno2019.shuffle = function (collect) {
+  let colSet = new Set();
+
+  while (colSet.size < collect.length) {
+    let r = Math.floor(Math.random() * collect.length);
+    if (!colSet.has(collect[r])) colSet.add(collect[r]);
+  }
+
+  return [...colSet];
+}
