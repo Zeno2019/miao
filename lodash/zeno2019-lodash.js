@@ -9,6 +9,13 @@ zeno2019.isNull = function (val) {
   return val === null ? true : false;
 }
 
+zeno2019.isNaN = function (val) {
+  let t = Number(val);
+
+  if (t !== t && val !== undefined) return true;
+  return false;
+}
+
 zeno2019.chunk = function (array, size = 1) {
   let result = [];
 
@@ -483,6 +490,10 @@ zeno2019.xfilter = function (collect, predicate = zeno2019.identity) {
   return res;
 }
 
+function ObjectJudge(args) {
+  return Object.prototype.toString.call(args);
+}
+
 /**
  * [findIndex description]
  * 该方法返回第一个通过 predicate 判断为真值的元素的索引
@@ -493,9 +504,6 @@ zeno2019.xfilter = function (collect, predicate = zeno2019.identity) {
  * @return {[type]}           [description]
  */
 zeno2019.findIndex = function (arr, predicate = zeno2019.identity, fromIndex = 0) {
-  function ObjectJudge(args) {
-    return Object.prototype.toString.call(args);
-  }
   if (arr.length == 0) return -1;
 
   if (ObjectJudge(predicate) == '[object Object]') {
@@ -533,9 +541,6 @@ zeno2019.findIndex = function (arr, predicate = zeno2019.identity, fromIndex = 0
  * @return {[type]}           [description]
  */
 zeno2019.findLastIndex = function (arr, predicate = zeno2019.identity, fromIndex = arr.length - 1) {
-  function ObjectJudge(args) {
-    return Object.prototype.toString.call(args);
-  }
 
   if (arr.length == 0) return -1;
   if (fromIndex > arr.length - 1) fromIndex = arr.length - 1;
@@ -566,9 +571,6 @@ zeno2019.findLastIndex = function (arr, predicate = zeno2019.identity, fromIndex
 }
 
 zeno2019.includes = function (collect, value, fromIndex = 0) {
-  function ObjectJudge(args) {
-    return Object.prototype.toString.call(args);
-  }
 
   if (fromIndex < 0) fromIndex += collect.length;
 
@@ -639,3 +641,38 @@ zeno2019.shuffle = function (collect) {
 
   return [...colSet];
 }
+
+zeno2019.size = function (collect) {
+  let cnt = 0;
+
+  for (let key in collect) {
+    cnt++;
+  }
+  return cnt;
+}
+
+/**
+ * [eq description]
+ * 判断是否 value 和 other 是否相等的函数
+ * @param  {[type]} value [description]
+ * @param  {[type]} other [description]
+ * @return {[type]}       [description]
+ */
+zeno2019.eq = function (value, other) {
+  if (value !== value && other !== other) {
+    return value !== undefined && other !== undefined;
+  }
+  return value === other;
+}
+
+zeno2019.gt = (value, other) => value > other;
+
+zeno2019.gte = (value, other) => value >= other;
+
+zeno2019.lt = (value, other) => value < other;
+
+zeno2019.lte = (value, other) => value <= other;
+
+zeno2019.add = (value, other) => value + other;
+
+// zeno2019.ceil = (value, precision = 0) =>
