@@ -675,4 +675,123 @@ zeno2019.lte = (value, other) => value <= other;
 
 zeno2019.add = (value, other) => value + other;
 
-// zeno2019.ceil = (value, precision = 0) =>
+zeno2019.subtract = (value, other) => value - other;
+
+zeno2019.multiply = (value, other) => value * other;
+
+zeno2019.divide = (value, other) => value / other;
+
+zeno2019.max = function (arr) {
+  if (arr.length == 0) return undefined;
+
+  let res = -Infinity;
+
+  for (let val of arr) {
+    if (typeof (val) !== 'number' || val === false) return undefined;
+    if (res < val) res = val;
+  }
+
+  return res;
+}
+
+zeno2019.min = function (arr) {
+  if (arr.length == 0) return undefined;
+
+  let res = Infinity;
+
+  for (let val of arr) {
+    if (typeof (val) !== 'number' || val === false) return undefined;
+    if (res > val) res = val;
+  }
+
+  return res;
+}
+
+zeno2019.sum = function (arr) {
+  let res = 0;
+  for (let val of arr) {
+    res += val;
+  }
+  return res;
+}
+
+zeno2019.mean = function (arr) {
+  let res = 0;
+  for (let val of arr) {
+    res += val;
+  }
+  return res / arr.length;
+}
+
+/**
+ * [ceil description]
+ * 未完待续
+ * @param  {[type]} value     [description]
+ * @param  {Number} precision [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.xceil = function (value, precision = 0) {}
+
+/**
+ * [floor description]
+ * 未完待续
+ * @param  {[type]} value     [description]
+ * @param  {Number} precision [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.xfloor = function (value, precision = 0) {}
+
+/**
+ * [round description]
+ * @param  {[type]} num       [description]
+ * @param  {Number} precision [description]
+ * @return {[type]}           [description]
+ */
+zeno2019.xround = function (num, precision = 0) {}
+
+/**
+ * [at description]
+ * @param  {[type]} obj   [description]
+ * @param  {[type]} paths [description]
+ * @return {[type]}       [description]
+ */
+zeno2019.xat = function (obj, paths) {}
+
+/**
+ * [defaults description]
+ * 大概可以理解为，把第二个参数里的对象，添加进第一个参数里，但已有键值对的不添加
+ * 这里 Object.keys() 返回 obj 的所有 keys 组成的数组
+ * @param  {[type]}    obj     [description]
+ * @param  {...[type]} sources [description]
+ * @return {[type]}            [description]
+ */
+zeno2019.defaults = function (obj, ...sources) {
+  for (let elem of sources) {
+    for (let key in elem) {
+      if (!(Object.keys(obj)).includes(key)) obj[key] = elem[key];
+    }
+  }
+
+  return obj;
+}
+
+/**
+ * [get description]
+ * 貌似是解析， path 是不是字符串，如果是 则按对象返回对应值， 解析值是 undefined 就返回 default 值
+ * 如果是数组，则解析里面是不是字符串
+ * 未完待续
+ * @param  {[type]} obj          [description]
+ * @param  {[type]} path         [description]
+ * @param  {String} defaultValue [description]
+ * @return {[type]}              [description]
+ */
+zeno2019.xget = function (obj, path, defaultValue) {}
+
+/**
+ * [set description]
+ * @param  {[type]} obj          [description]
+ * @param  {[type]} path         [description]
+ * @param  {[type]} value        [description]
+ * @return {[type]}              [description]
+ */
+zeno2019.xset = function (obj, path, value) {}
