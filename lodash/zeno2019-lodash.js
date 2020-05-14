@@ -723,6 +723,20 @@ zeno2019.mean = function (arr) {
   return res / arr.length;
 }
 
+zeno2019.meanBy = function (arr, iteratee = zeno2019.identity) {
+  let res = 0;
+
+  for (let val of arr) {
+    if (typeof (iteratee) === 'string') {
+      res += val[iteratee];
+    } else {
+      res += iteratee(val);
+    }
+  }
+
+  return res / arr.length;
+}
+
 /**
  * [ceil description]
  * 未完待续
@@ -795,3 +809,39 @@ zeno2019.xget = function (obj, path, defaultValue) {}
  * @return {[type]}              [description]
  */
 zeno2019.xset = function (obj, path, value) {}
+
+/**
+ * [has description]
+ * @param  {[type]}  obj  [description]
+ * @param  {[type]}  path [description]
+ * @return {Boolean}      [description]
+ */
+zeno2019.xhas = function (obj, path) {}
+
+/**
+ * [hasIn description]
+ * @param  {[type]} obj  [description]
+ * @param  {[type]} path [description]
+ * @return {[type]}      [description]
+ */
+zeno2019.xhasIn = function (obj, path) {}
+
+zeno2019.invert = function (obj) {
+  let res = {};
+
+  for (let key in obj) {
+    res[obj[key]] = key;
+  }
+
+  return res;
+}
+
+zeno2019.keys = function (obj) {
+  let keysName = [];
+
+  for (let key in obj) {
+    keysName[keysName.length++] = key;
+  }
+
+  return keysName;
+}
